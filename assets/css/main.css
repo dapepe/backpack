@@ -1,0 +1,154 @@
+.clear-after:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+.hover-shadow {
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+  margin: 1px 0 0 2px;
+}
+.hover-shadow:hover {
+  margin: 0;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.85);
+  -moz-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.85);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.85);
+}
+body {
+  background-image: url("../img/hawaii-209956_1280.jpg");
+  background-repeat: no-repeat;
+  color: #fff;
+  height: 100%;
+  background-size: cover;
+}
+a {
+  color: inherit;
+}
+#header {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#bp {
+  position: relative;
+  margin-top: 15%;
+  margin-left: 43%;
+  width: 200px;
+}
+#bpnav {
+  width: 40px;
+  left: 5px;
+  top: 20px;
+  position: absolute;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-out;
+  -moz-transition: opacity 0.2s ease-out;
+  -o-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+}
+#nav {
+  position: fixed;
+  background-color: transparent;
+  width: 100%;
+  height: 65px;
+  -webkit-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.75);
+  -webkit-transition: opacity 0.2s ease-out;
+  -moz-transition: opacity 0.2s ease-out;
+  -o-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+  z-index: 10;
+  opacity: 0;
+}
+.openNav {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  opacity: 1 !important;
+  height: 70px !important;
+}
+.openNav #bpnav {
+  opacity: 1;
+}
+.openNav #btnholder {
+  opacity: 1;
+}
+li {
+  display: inline-block;
+}
+.btn {
+  background-color: transparent;
+  border-color: #fff;
+  border: 1px solid;
+}
+.navbtn {
+  display: inline-block;
+}
+.navbtn:hover {
+  color: #fff;
+  border-color: #AB3439;
+}
+#btnholder {
+  position: absolute;
+  right: 10%;
+  display: inline-block;
+  top: 20px;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-out;
+  -moz-transition: opacity 0.2s ease-out;
+  -o-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+}
+.link {
+  border-radius: 0px;
+  padding: 10px;
+  top: 65%;
+  position: absolute;
+  margin-left: 40%;
+}
+.down {
+  padding: 20px;
+  border-radius: 30px;
+  bottom: 10%;
+  position: absolute;
+  left: 47%;
+}
+.btnnav {
+  margin-top: 0 !important;
+  top: 0px !important;
+  position: absolute !important;
+}
+#holder {
+  width: 100%;
+  color: #000;
+  height: 30px;
+  padding: 50px;
+  top: 100px;
+  position: relative;
+}
+#holder a {
+  color: #fff;
+}
+#holder #github {
+  left: 30%;
+  position: absolute;
+}
+#holder #download {
+  right: 30%;
+  position: absolute;
+}
+#text {
+  display: inline-block;
+  position: absolute;
+  left: 60px;
+}
+#readme {
+  background-image: url("../img/line.png");
+}
+#tut {
+  margin-top: 50px;
+}
+footer {
+  background-image: url("../img/body.png");
+  color: #000;
+}

@@ -1,0 +1,464 @@
+<head>
+	<meta charset="UTF-8">
+		<title>BackPack</title>
+		<!-- MooTools -->
+		<script src="assets/lib/js/mootools/mootools-core-1.5.1.js"></script>
+		<script src="assets/lib/js/mootools/mootools-more-1.5.1.js"></script>
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="assets/lib/css/bootstrap/bootstrap.css">
+		<!-- General styles and scripts -->
+		<script src="assets/js/main.js"></script>
+		<link rel="stylesheet" href="assets/css/main.css" type="text/less">
+		<script src="assets/lib/js/less/less-1.7.5.min.js" type="text/javascript"></script>
+		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon">
+	</head>
+	<body>
+		<div id="header">
+			<div id="nav">
+				<img id="bpnav" class="" src="assets/img/backpack.png">
+				<h1 id="text">Backpack</h1>
+				<h2>A MongoDB-based approach to Content Management</h2>
+				<div id= "btnholder">
+					<ul>
+						<li><a href="https://github.com/zeyon/backpack" class="btn navbtn">GitHub</a></li>
+						<li><a class="btn navbtn">Download</a></li>
+					</ul>
+				</div>
+			</div>
+			<div>
+				<img id="bp" src="assets/img/backpack.png">
+				<div id="holder">
+					<ul>
+						<a id="github" href="https://github.com/zeyon/backpack" class="btn navbtn">GitHub</a>
+						<a id="download" class="btn navbtn">Download</a>
+					</ul>
+				</div>
+				<a href="#tut" class="btn down"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></a>
+			</div>
+		</div>
+		<section id="intro">
+			<h3>Backpack - the MongoDB backend for your application</h3>
+			<!-- Diagramm -->
+			<!--
+				Flexible data schema
+				Backpack is all about flexibility. That's why MongoDB is the perfect data store for your content
+			-->
+			<!--
+				List Editor
+				For Menus, Sliders, etc.
+			-->
+			<!--
+				WYSIWYG Editor
+			-->
+			<!--
+				Image Uploader
+			-->
+			<!--
+				Code Editor
+				You can easily Edit XML, JSON, JavaScript and Text files
+			-->
+		</section>
+		<div id="readme">
+			<div class="container">
+				<div id="tut">
+					<h1 id="backpack-for-mongodb">Backpack for MongoDB</h1>
+<p>Backpack is a Content Management System based on <a href="http://www.mongodb.org/">MongoDB</a>.
+As a developer, you can simply focus on your front-end and use Backpack to manage
+your content, such as HTML pages, images, menus, etc.</p>
+<p>Backpack is designed to be very versatile in order to support a lot of different
+use cases, such as custom web sites, portal pages or online shops.</p>
+<h2 id="installation">Installation</h2>
+<p>In order to run MongoDB you will need</p>
+<ul>
+<li>A web server (e.g. <a href="http://httpd.apache.org/">Apache</a>)</li>
+<li>PHP &gt;=5.4</li>
+<li>MongoDB extension for PHP</li>
+<li>Either install <a href="http://www.imagemagick.org/">Imagemagick</a> or the Imagemagick PHP extension</li>
+</ul>
+<p>Since Backpack is using some rewrites, you should make sure that the <code>.htaccess</code> settings are
+applied. This simply creates a nicer URLs, especially for GridFS files.</p>
+<h2 id="user-management">User management</h2>
+<p>All users are managed through MongoDB. Simply add a new user for your database.</p>
+<p>I also recomment tools such as <a href="http://robomongo.org/">RoboMongo</a> to maintain your database.</p>
+<p>When you login to Backpack, use the following username format:</p>
+<pre><code>username@instancename</code></pre>
+<p>E.g. if your instance is called &quot;mywebsite&quot; and your MongoDB user is called &quot;peter&quot;,
+your login name would be &quot;peter@mywebsite&quot;.</p>
+<h2 id="building-instructions">Building instructions</h2>
+<p>In case you want to create your own build, you will have to install some dependencies.</p>
+<h3 id="composer-dependencies">Composer dependencies</h3>
+<p>In order to install the required PHP libraries, run <a href="https://getcomposer.org/">Composer</a>.</p>
+<pre><code>&gt; composer install</code></pre>
+<h3 id="bower-dependencies">Bower dependencies</h3>
+<p>The front-end requires several JavaScript and CSS libraries, such as</p>
+<ul>
+<li>Mootools</li>
+<li>CKEditor</li>
+<li>ACE Editor</li>
+<li>Bootstrap</li>
+<li>Roboto Fontface</li>
+<li>RequireJS</li>
+<li>Bootstrap</li>
+<li>gx.core</li>
+<li>gx.bootstrap</li>
+</ul>
+<p>Simple run <a href="http://bower.io/">Bower</a> in your project directory to install them.</p>
+<pre><code>&gt; bower install</code></pre>
+<h3 id="grunt">Grunt</h3>
+<p>The building itself is done using <a href="http://gruntjs.com/">Grunt</a> - besides the default builder
+there is also a <code>dev</code> task, which will include all classes and files separately instead of
+buidling a concatianted and minified version.</p>
+<pre><code>&gt; npm install
+&gt; grunt</code></pre>
+<h2 id="instance-configuration">Instance Configuration</h2>
+<p>MongoDB settings:</p>
+<pre><code class="lang-json">{
+    &quot;mongo&quot;: {
+        &quot;host&quot;: &quot;mongodb://127.0.0.1:27017&quot;,
+        &quot;db&quot;  : &quot;backpack&quot;
+    },
+    &quot;cache&quot;: &quot;./cache&quot;,
+    &quot;rootpwd&quot;: &quot;secret&quot;
+}</code></pre>
+<p>If you are running on <a href="http://www.bluemix.net">IBM Bluemix</a> you can also simply
+put the service name into to Mongo settings:</p>
+<pre><code class="lang-json">{
+    &quot;mongo&quot;: {
+        &quot;service&quot;: &quot;servicename&quot;
+    }
+}</code></pre>
+<h2 id="collection-configuration">Collection Configuration</h2>
+<p>Backpack utilized the flexible document model provided by MongoDB to enable you to
+manage all sorts of different content types and meta information.</p>
+<p>Each <code>.json</code> file in your instance&#39;s <code>collections</code> folder represents a single MongoDB
+collection and includes the structure and settings for all documents that should be
+contained in this collection.</p>
+<p>Example:</p>
+<pre><code class="lang-json">{
+  &quot;label&quot;: {
+    &quot;singular&quot;: &quot;Page&quot;,
+    &quot;plural&quot;: &quot;Pages&quot;
+  },
+  &quot;contenttype&quot;: &quot;html&quot;,
+  &quot;published&quot;: 1,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;properties&quot;: {
+    &quot;title&quot;: {
+      &quot;label&quot; : &quot;Titel&quot;,
+      &quot;type&quot;  : &quot;string&quot;,
+      &quot;filter&quot;: &quot;min_length&quot;,
+      &quot;len&quot;   : 3
+    },
+    &quot;location&quot;: {
+      &quot;type&quot;: &quot;select&quot;,
+      &quot;allowempty&quot;: true,
+      &quot;options&quot;: [
+        &quot;header&quot;,
+        &quot;footer&quot;
+      ]
+    },
+    &quot;banner&quot;: {
+      &quot;label&quot;: &quot;Banner&quot;,
+      &quot;type&quot;: &quot;reference:banners&quot;
+    }
+  },
+  &quot;index&quot;: {
+    &quot;title&quot;: 1
+  },
+  &quot;searchfields&quot;: [
+    &quot;title&quot;
+  ],
+  &quot;listfields&quot;: [
+    &quot;title&quot;
+  ]
+}</code></pre>
+<p>Let&#39;s go through the individual config parameters, it&#39;s really quire simple:</p>
+<h3 id="label">label</h3>
+<p>The label object simple contains the name of your collection (singular and plural).</p>
+<h3 id="contenttype">contenttype</h3>
+<p>The <code>contenttype</code> attribute defines your document&#39;s primary content.</p>
+<p>The following content types exist:</p>
+<table>
+<thead>
+<tr>
+<th>Content type</th>
+<th>Editor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>txt</code></td>
+<td>ACE Editor</td>
+</tr>
+<tr>
+<td><code>css</code></td>
+<td>ACE Editor</td>
+</tr>
+<tr>
+<td><code>less</code></td>
+<td>ACE Editor</td>
+</tr>
+<tr>
+<td><code>md</code></td>
+<td>ACE Editor</td>
+</tr>
+<tr>
+<td><code>js</code></td>
+<td>ACE Editor</td>
+</tr>
+<tr>
+<td><code>json</code></td>
+<td>ACE Editor</td>
+</tr>
+<tr>
+<td><code>xml</code></td>
+<td>ACE Editor</td>
+</tr>
+<tr>
+<td><code>html</code></td>
+<td>ACE Editor</td>
+</tr>
+<tr>
+<td><code>raw</code></td>
+<td>ACE Editor</td>
+</tr>
+<tr>
+<td><code>html</code></td>
+<td>CKEditor (WYSIWYG)</td>
+</tr>
+<tr>
+<td><code>none</code></td>
+<td>No editor (only properties)</td>
+</tr>
+<tr>
+<td><code>file:image</code></td>
+<td>Image editor</td>
+</tr>
+<tr>
+<td><code>list</code></td>
+<td>List editor</td>
+</tr>
+</tbody>
+</table>
+<h3 id="properties">properties</h3>
+<p>The <code>properties</code> object specifies the meta information that your document should include.
+This is the great thing about MongoDb - you are 100% flexible in the information you want
+to store for each document.</p>
+<p>You can specify additioal form fields and properties through the following attributes:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>label</code></td>
+<td>string</td>
+<td>The form label</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>The field type (Possible values: <code>string</code>, <code>bool</code>, <code>select</code>, <code>reference:*</code>)</td>
+</tr>
+<tr>
+<td><code>default</code></td>
+<td>string</td>
+<td>The default value</td>
+</tr>
+<tr>
+<td><code>options</code></td>
+<td>object/array</td>
+<td>An array or object with list options</td>
+</tr>
+<tr>
+<td><code>allowempty</code></td>
+<td>int(0,1)</td>
+<td>Allow empty value for select boxes</td>
+</tr>
+<tr>
+<td><code>filter</code></td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+<h4 id="references">References</h4>
+<p>You can easily reference other documents simply by adding a reference field. For instance, <code>reference:banners</code>
+would add a reference box to the <code>banners</code> collection.</p>
+<h4 id="filters">Filters</h4>
+<p>Backpack also supports filters to validate your users&#39; input. The following filter types exist:</p>
+<table>
+<thead>
+<tr>
+<th>Filter</th>
+<th>Description</th>
+<th>Additional params</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ipv4</code></td>
+<td>Validate IP v4 addresses</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ipv6</code></td>
+<td>Validate IP v6 addresses</td>
+<td></td>
+</tr>
+<tr>
+<td><code>min_length</code></td>
+<td>Requires the value to be at least n characters long</td>
+<td><code>len</code>: int</td>
+</tr>
+<tr>
+<td><code>max_length</code></td>
+<td>Restricts the value to n characters in length</td>
+<td><code>len</code>: int</td>
+</tr>
+<tr>
+<td><code>intzero</code></td>
+<td>Integer, including 0</td>
+<td></td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td>Integer, excluding 0</td>
+<td></td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td>Floating number, e.g. 4.23</td>
+<td></td>
+</tr>
+<tr>
+<td><code>langcode</code></td>
+<td>Language codes, e.g. &quot;en_US&quot;</td>
+<td></td>
+</tr>
+<tr>
+<td><code>url</code></td>
+<td>Validates URL format</td>
+<td></td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>Validates e-mail format</td>
+<td></td>
+</tr>
+<tr>
+<td><code>regexp</code></td>
+<td>Validates the value agains a regular expression</td>
+<td><code>regexp</code>: string</td>
+</tr>
+</tbody>
+</table>
+<h3 id="published">published</h3>
+<p>If the parameter <code>published</code> exists, each document will include a checkbox labeled &quot;public&quot;, which
+allows you to specify if a document should be publicly available. E.g. if you publish an image,
+the image URL can be viewed without being logged into Backpack.</p>
+<p>The parameter value specifies the default setting, e.g. <code>&quot;published&quot;: 1</code> means that for every new
+document, the &quot;public&quot; checkbox will be checked by default.</p>
+<h3 id="icon">icon</h3>
+<p>You can specify an icon for each collection. Simply select one of the standard <a href="http://glyphicons.com/">Glyphicons</a>
+that ship with Bootstrap. You can see the full list of icons here: <a href="http://getbootstrap.com/components/">http://getbootstrap.com/components/</a></p>
+<h3 id="indexes">indexes</h3>
+<p>Defines which properties should be indexed through MongoDB. See the MongoDb documentation on
+<a href="http://docs.mongodb.org/manual/reference/method/db.collection.ensureIndex/">db.collection.ensureIndex</a>
+for more details.</p>
+<h3 id="searchfields">searchfields</h3>
+<p>Searchable fields can be specified through an array, which lists all field identifiers that should
+be included in the global search.</p>
+<h3 id="listfields">listfields</h3>
+<p>By default, Backpack only displays the document identifier in the document list. If you want to display
+additional fields in the list, you can simply state those fields in the <code>listfields</code> array.</p>
+<h2 id="additional-configuration">Additional configuration</h2>
+<h3 id="cache-clean-up">Cache clean-up</h3>
+<p>In case you use Backpack to manage images, thumbnails for those images will be created with Imagemagick.
+Those images will be cached in the instances <code>cache</code> directory. If not cleared regularly, this will
+cost you some disc space after some time.</p>
+<p>On Linux systems, simply create a file <code>/etc/cron.daily/backpack-cleanup</code>:</p>
+<pre><code>#!/bin/sh
+php {path-to-backpack}/cleanup.php</code></pre>
+<p>Make sure that your script is also executable:</p>
+<pre><code>chmod 755 /etc/cron.daily/backpack-cleanup</code></pre>
+<h2 id="deployment-on-bluemix">Deployment on Bluemix</h2>
+<p>We recommend using <a href="http://bluemix.net">IBM Bluemix</a> - the Backpack build pack has been tested
+for Bluemix and works out of the box. Also note that Bluemix is very well suited for productive
+environments and scales very well. This is especially useful for online shops and e-commerce
+systems, which is one of the core user groups of Backpack.</p>
+<p>Simple follow those instructions to deploy Backpack on Bluemix:</p>
+<h3 id="step-1-sign-up-for-bluemix">Step 1: Sign-up for Bluemix</h3>
+<p>Go to the (Bluemix Website)[<a href="http://bluemix.net">http://bluemix.net</a>] and signup for a free account.</p>
+<h3 id="step-2-download-and-configure-backpack">Step 2: Download and configure Backpack</h3>
+<p>Simply <a href="https://github.com/zeyon/backpack">download backpack</a> and unzip it or create your own fork
+(follow the build instructions in that case).</p>
+<p>In you backpack directory you will find a file called <code>manifest.template.yml</code>. Duplicate this file and
+call it <code>manifest.yml</code>. Open this file with and editor and edit the settings for your application:</p>
+<pre><code class="lang-yml">---
+applications:
+- name: {app-identifier}
+  memory: 128M
+  instances: 1
+  host: {your-host-name}
+  domain: mybluemix.net
+  path: .
+  buildpack: https://github.com/dmikusa-pivotal/cf-php-build-pack.git</code></pre>
+<p>In this file, you should now edit the following options:</p>
+<ul>
+<li><code>name</code>: This is the unique identifier for your application</li>
+<li><code>memory</code>: The memory size you require (can be quite low)</li>
+<li><code>instances</code>: The number of instances (can stay at 1)</li>
+<li><code>host</code>: Your app host name</li>
+<li><code>domain</code>: The application domain (if unsure, leave mybluemix.net)</li>
+</ul>
+<h3 id="step-3-push-backpack-on-bluemix">Step 3: Push Backpack on Bluemix</h3>
+<p><a href="https://github.com/cloudfoundry/cli">Download the Cloud Foundery CLI</a>
+and install it on your computer.</p>
+<p>Open a console and go into your backpack directory. First, you will have to login with your Bluemix
+user account:</p>
+<pre><code>cf api https://api.ng.bluemix.net
+cf login</code></pre>
+<p>After you are successfully logged in, you can upload backpack with the following command:</p>
+<pre><code>cf push -f manifest.yml</code></pre>
+<p>Almost done! Now, we need to create a new service for MongoDB and connect it with Backpack.
+Note that <code>{app-identifier}</code> is the same value as the <code>name</code> attribute you have specified in
+you <code>manifest.yml</code>.</p>
+<pre><code>cf create-service mongodb 100 mongo-backpack
+cf bind-service {app-identifier} mongo-backpack</code></pre>
+<p>Please note that <code>mongo-backpack</code> is the identifier for the MongoDB service. You are of course
+free to select your own identifier.</p>
+<p>In order to ensure that the app environment gets update, restart your application:</p>
+<pre><code>cf restart {app-identifier}</code></pre>
+<h3 id="step-4-create-a-mongodb-user">Step 4: Create a MongoDB user</h3>
+<h2 id="about">About</h2>
+<p>If you like the flexibility of Backpack, you might want to check out the people who are behind
+it at <a href="https://www.zeyos.com">www.zeyos.com</a> - we make great things happen for enterprises around the world.</p>
+<p>Backpack has been used in a variety of projects, where customers needed a simple way to enter data
+or to add content for various web applications, such as online shops, service portals or
+web sites.</p>
+<h2 id="contributing">Contributing</h2>
+<p>There&#39;s many ways you can contribute to Backpack:</p>
+<ul>
+<li>Help us to maintain the Backpack website</li>
+<li>Add content (blog posts and tutorials)</li>
+<li>Create a fork and create pull requests for new features or bug-fixes</li>
+</ul>
+<p>For any suggestions, simply add an issue on GitHub.</p>
+<h2 id="licensing">Licensing</h2>
+<p>Backpack is licensed under the AGPL.
+You are free to host your own system for both private and commercial use, as long
+as you do not charge money for using Backpack itself. If you are interested in
+commercial licensing, simply contact us.</p>
+<p>The Backpack has been hand-crafted by <a href="http://www.roger-praun.de">Roger Praun</a> - in case you
+need some illustrations or a piece of art, he&#39;s the man to talk to.</p>
+
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
