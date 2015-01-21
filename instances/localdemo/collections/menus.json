@@ -1,0 +1,33 @@
+{
+    "label": {
+        "singular": "Menu",
+        "plural": "Menus"
+    },
+    "items": {
+        "collapse": 1,
+        "label": "title",
+        "preview": 0,
+        "properties": {
+            "title": {
+                "label": "Titel",
+                "type": "string"
+            },
+            "page": {
+                "label": "page",
+                "type" : "collection:pages"
+            }
+        }
+    },
+    "contenttype": "list",
+    "icon": "th-list",
+    "properties": {
+        "location": {
+            "type": "select",
+            "allowempty": true,
+            "options": [
+                "header",
+                "footer"
+            ]
+        }
+    }
+}

@@ -1,0 +1,254 @@
+.clear-after {
+  display: block;
+  content: "";
+  clear: both;
+}
+.cubic (@dim: 16px) {
+	width: @dim;
+	height: @dim;
+}
+.rounded (@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  -ms-border-radius: @radius;
+  -o-border-radius: @radius;
+  border-radius: @radius;
+}
+.hover-opacity (@color: #FFF; @opacity: 0.7) {
+	-webkit-transition: color 400ms ease, opacity 400ms ease;
+	-moz-transition: color 400ms ease, opacity 400ms ease;
+	-o-transition: color 400ms ease, opacity 400ms ease;
+	transition: color 400ms ease, opacity 400ms ease;
+	&:hover {
+		.opacity(@opacity);
+		color: @color;
+	}
+}
+.hover-color (@color) {
+	.transition(color);
+	&:hover {
+		color: @color;
+	}
+}
+.hover-shadow {
+	.drop-shadow(2px);
+	margin: 1px 0 0 2px;
+	&:hover {
+		margin: 0;
+		.drop-shadow(5px, 0.85, 2px, 2px);
+	}
+}
+.border-radius(@topright: 0, @bottomright: 0, @bottomleft: 0, @topleft: 0) {
+  -webkit-border-top-right-radius: @topright;
+  -webkit-border-bottom-right-radius: @bottomright;
+  -webkit-border-bottom-left-radius: @bottomleft;
+  -webkit-border-top-left-radius: @topleft;
+  -moz-border-radius-topright: @topright;
+  -moz-border-radius-bottomright: @bottomright;
+  -moz-border-radius-bottomleft: @bottomleft;
+  -moz-border-radius-topleft: @topleft;
+  border-top-right-radius: @topright;
+  border-bottom-right-radius: @bottomright;
+  border-bottom-left-radius: @bottomleft;
+  border-top-left-radius: @topleft;
+  .background-clip(padding-box);
+}
+.drop-shadow(@blur: 5px, @alpha: 0.75, @x-axis: 0, @y-axis: 1px) {
+  -webkit-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+  box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+}
+.gradient(@color: #F5F5F5, @start: #EEE, @stop: #FFF) {
+  background: @color;
+  background: -webkit-gradient(linear,
+                               left bottom,
+                               left top,
+                               color-stop(0, @start),
+                               color-stop(1, @stop));
+  background: -ms-linear-gradient(bottom,
+                                  @start,
+                                  @stop);
+  background: -moz-linear-gradient(center bottom,
+                                   @start 0%,
+                                   @stop 100%);
+  background: -o-linear-gradient(@stop,
+                                 @start);
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@stop,@start));
+}
+.bw-gradient(@color: #F5F5F5, @start: 0, @stop: 255) {
+  background: @color;
+  background: -webkit-gradient(linear,
+                               left bottom,
+                               left top,
+                               color-stop(0, rgb(@start,@start,@start)),
+                               color-stop(1, rgb(@stop,@stop,@stop)));
+  background: -ms-linear-gradient(bottom,
+                                  rgb(@start,@start,@start) 0%,
+                                  rgb(@stop,@stop,@stop) 100%);
+  background: -moz-linear-gradient(center bottom,
+                                   rgb(@start,@start,@start) 0%,
+                                   rgb(@stop,@stop,@stop) 100%);
+  background: -o-linear-gradient(rgb(@stop,@stop,@stop),
+                                 rgb(@start,@start,@start));
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",rgb(@stop,@stop,@stop),rgb(@start,@start,@start)));
+}
+.bordered(@top-color: #EEE, @right-color: #EEE, @bottom-color: #EEE, @left-color: #EEE) {
+  border-top: solid 1px @top-color;
+  border-left: solid 1px @left-color;
+  border-right: solid 1px @right-color;
+  border-bottom: solid 1px @bottom-color;
+}
+.opacity(@opacity: 0.5) {
+  -moz-opacity: @opacity;
+  -khtml-opacity: @opacity;
+  -webkit-opacity: @opacity;
+  opacity: @opacity;
+  @opperc: @opacity * 100;
+  -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{opperc})";
+  filter: ~"alpha(opacity=@{opperc})";
+}
+.transition-duration(@duration: 0.2s) {
+  -moz-transition-duration: @duration;
+  -webkit-transition-duration: @duration;
+  -o-transition-duration: @duration;
+  transition-duration: @duration;
+}
+.transform(...) {
+  -webkit-transform: @arguments;
+  -moz-transform: @arguments;
+  -o-transform: @arguments;
+  -ms-transform: @arguments;
+  transform: @arguments;
+}
+.rotation(@deg:5deg){
+  .transform(rotate(@deg));
+}
+.scale(@ratio:1.5){
+  .transform(scale(@ratio));
+}
+.transition(@properties; @duration:0.2s; @ease:ease-out) {
+  -webkit-transition: @properties @duration @ease;
+  -moz-transition: @properties @duration @ease;
+  -o-transition: @properties @duration @ease;
+  transition: @properties @duration @ease;
+}
+.mtransition(@properties) {
+  -webkit-transition: @properties;
+  -moz-transition: @properties;
+  -o-transition: @properties;
+  transition: @properties;
+}
+.inner-shadow(@horizontal:0, @vertical:1px, @blur:2px, @alpha: 0.4) {
+  -webkit-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+  box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+}
+.box-shadow(@arguments) {
+  -webkit-box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  box-shadow: @arguments;
+}
+.box-sizing(@sizing: border-box) {
+  -ms-box-sizing: @sizing;
+  -moz-box-sizing: @sizing;
+  -webkit-box-sizing: @sizing;
+  box-sizing: @sizing;
+}
+.user-select(@argument: none) {
+  -webkit-user-select: @argument;
+  -moz-user-select: @argument;
+  -ms-user-select: @argument;
+  user-select: @argument;
+}
+.columns(@colwidth: 250px, @colcount: 0, @colgap: 50px, @columnRuleColor: #EEE, @columnRuleStyle: solid, @columnRuleWidth: 1px) {
+  -moz-column-width: @colwidth;
+  -moz-column-count: @colcount;
+  -moz-column-gap: @colgap;
+  -moz-column-rule-color: @columnRuleColor;
+  -moz-column-rule-style: @columnRuleStyle;
+  -moz-column-rule-width: @columnRuleWidth;
+  -webkit-column-width: @colwidth;
+  -webkit-column-count: @colcount;
+  -webkit-column-gap: @colgap;
+  -webkit-column-rule-color: @columnRuleColor;
+  -webkit-column-rule-style: @columnRuleStyle;
+  -webkit-column-rule-width: @columnRuleWidth;
+  column-width: @colwidth;
+  column-count: @colcount;
+  column-gap: @colgap;
+  column-rule-color: @columnRuleColor;
+  column-rule-style: @columnRuleStyle;
+  column-rule-width: @columnRuleWidth;
+}
+.translate(@x:0, @y:0) {
+  .transform(translate(@x, @y));
+}
+.background-clip(@argument: padding-box) {
+  -moz-background-clip: @argument;
+  -webkit-background-clip: @argument;
+  background-clip: @argument;
+}
+.triangle-topright(@color: #050505, @width: 8px, @mask: #000000) {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 @width @width 0;
+  border-color: transparent @color transparent transparent;
+  line-height: 0px;
+  _border-color: @mask @color @mask @mask;
+  _filter: progid:DXImageTransform.Microsoft.Chroma(color='@mask');
+}
+.triangle-top(@color: #050505, @width: 8px, @mask: #000000) {
+  @border: @width / 2;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 @border @width @border;
+  border-color: transparent transparent @color transparent;
+  line-height: 0px;
+  _border-color: @mask @mask @color @mask;
+  _filter: progid:DXImageTransform.Microsoft.Chroma(color='@mask');
+}
+.triangle-right(@color: #050505, @width: 8px, @mask: #000000) {
+  @border: @width / 2;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: @border 0 @border @width;
+  border-color: transparent transparent transparent @color;
+  line-height: 0px;
+  _border-color: @mask @mask @mask @color;
+  _filter: progid:DXImageTransform.Microsoft.Chroma(color='@mask');
+}
+.triangle-bottom(@color: #050505, @width: 8px, @mask: #000000) {
+  @border: @width / 2;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: @width @border 0 @border;
+  border-color: @color transparent transparent transparent;
+  line-height: 0px;
+  _border-color: @color @mask @mask @mask;
+  _filter: progid:DXImageTransform.Microsoft.Chroma(color='@mask');
+}
+.triangle-left(@color: #050505, @width: 8px, @mask: #000000) {
+  @border: @width / 2;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: @border @width @border 0;
+  border-color: transparent @color transparent transparent;
+  line-height: 0px;
+  _border-color: @mask @color @mask @mask;
+  _filter: progid:DXImageTransform.Microsoft.Chroma(color='@mask');
+}
+
+.fade-open-close() {
+  .transition(opacity, 0.2s);
+
+  opacity: 0;
+  &.active {opacity: 1;}
+  &.dnone {display: none;}
+  &.dblock {display: block;}
+
+}

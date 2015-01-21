@@ -1,0 +1,27 @@
+assets:
+  src:
+    config:
+    lang:
+    util:
+    api:
+      collection:
+      file:
+      gridfs:
+      user:
+    classes:
+      Api:
+      Gui:
+      Menu:
+      Finder:
+      LoginDialog:
+      SetupDialog:
+      Reference:
+      Editor:
+      Editor.Collections:
+      Editor.Documents:
+      Editor.FileUpload:
+      Editor.Lists:
+    views:
+      console:
+      ckselector:
+    init:

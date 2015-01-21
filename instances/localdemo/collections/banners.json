@@ -1,0 +1,59 @@
+{
+    "label": {
+        "singular": "Banner",
+        "plural": "Banners"
+    },
+    "contenttype": "file:image",
+    "icon": "picture",
+    "comment": "Abmessungen: Teaser 440x240px, Slider Home Left 700x500px, Slider Home Right 220x500px",
+    "index": {
+        "position": 1
+    },
+    "groupby": {
+        "position": 1
+    },
+    "helptext": "test text askldj alksdj alsdöf asölkj",
+    "properties": {
+        "brand": {
+            "type": "select",
+            "options": {
+                "": "N/A",
+                "adidas": "Adidas",
+                "asics": "Asics",
+                "erima": "Erima",
+                "hummel": "hummel",
+                "kempa": "Kempa",
+                "mizuno": "Mizuno",
+                "molten": "Molten",
+                "rehband": "Rehband",
+                "salming": "Salming",
+                "select": "Select",
+                "stanno": "Stanno"
+            }
+        },
+        "title": {
+            "type": "string"
+        },
+        "subtitle": {
+            "type": "string"
+        },
+        "flag": {
+            "type": "string"
+        },
+        "url": {
+            "type": "string",
+            "default": "//"
+        },
+        "position": {
+            "label": "Position",
+            "type": "select",
+            "options": {
+                "none": "N/A",
+                "top_left": "Top - Left",
+                "top_right": "Top - Right",
+                "bottom_left": "Bottom - Left",
+                "bottom_right": "Bottom - Right"
+            }
+        }
+    }
+}

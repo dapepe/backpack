@@ -1,0 +1,31 @@
+{
+    "label": {
+        "singular": "Page",
+        "plural": "Pages"
+    },
+    "contenttype": "html",
+    "icon": "file",
+    "multilang": "de_DE",
+    "published": true,
+    "index": {
+        "title": 1
+    },
+    "searchfields": [
+        "title"
+    ],
+    "listfields": [
+        "title"
+    ],
+    "properties": {
+        "title": {
+            "label" : "Titel",
+            "type"  : "string",
+            "filter": "MIN_LENGTH",
+            "len"   : 3
+        },
+        "banner": {
+            "label": "Banner",
+            "type": "reference:banners"
+        }
+    }
+}

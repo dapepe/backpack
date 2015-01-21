@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Backpack - Error</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" type="text/css" href="./bower_components/roboto-fontface/roboto-fontface.css" />
+    <link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="./bower_components/gx-bootstrap/dist/gx-bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="./bower_components/hint.css/hint.min.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/build/backpack.css" />
+</head>
+<body id="errorPage">
+    <div class="container">
+        <h1>:(</h1>
+        <h2>An Error Occurred</h2>
+        <div class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-warning-sign"></span> {{message}}
+        </div>
+        <div class="bs-callout bs-callout-danger">
+            <h4><span class="glyphicon glyphicon-sort-by-attributes"></span> Trace</h4>
+            <pre>{{trace}}</pre>
+        </div>
+    </div>
+</body>
+</html>

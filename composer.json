@@ -1,0 +1,30 @@
+{
+    "name": "zeyon/backpack",
+    "description": "Backpack is a flexible Content Management System based on MongoDB",
+    "license": "AGPL",
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "authors": [
+        {
+            "name": "Zeyon Technologies Inc.",
+            "email": "code@zeyon.net",
+            "homepage": "https://www.zeyos.com"
+        },
+        {
+            "name": "Peter Haider",
+            "email": "peter.haider@zeyon.net",
+            "homepage": "https://www.about.me/peterhaider"
+        },
+        {
+            "name": "Sebastian Glonner",
+            "email": "sebastian.glonner@zeyon.net"
+        }
+    ],
+    "require": {
+        "php"               : ">=5.4.0",
+        "zeyon/rest"        : ">=1.0",
+        "zeyon/cryptastic"  : ">=1.0",
+        "mustangostang/spyc": ">=0.5"
+    }
+}

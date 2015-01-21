@@ -1,0 +1,13 @@
+/config.php
+/apps
+/cache
+/helper
+/.idea
+/vendor
+/node_modules
+/bower_components
+/instances/localdemo/cache
+/instances/bluemixdemo/cache
+/composer.lock
+/manifest.yml
+/assets/build

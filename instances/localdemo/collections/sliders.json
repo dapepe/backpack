@@ -1,0 +1,18 @@
+{
+    "label": {
+        "singular": "Sliderframe",
+        "plural": "Sliderframes"
+    },
+    "published": true,
+    "contenttype": "file:image/*",
+    "icon": "th",
+    "properties": {
+        "caption": {
+            "type": "string"
+        },
+        "link": {
+            "type": "string",
+            "default": ""
+        }
+    }
+}

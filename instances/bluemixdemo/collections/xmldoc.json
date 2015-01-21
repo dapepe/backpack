@@ -1,0 +1,24 @@
+{
+    "label": {
+        "singular": "XML Doc",
+        "plural": "XML Docs"
+    },
+    "contenttype": "xml",
+    "icon": "book",
+    "published": true,
+    "index": {
+        "title": 1
+    },
+    "searchfields": [
+        "title"
+    ],
+    "listfields": [
+        "title"
+    ],
+    "properties": {
+        "title": {
+            "label": "Titel",
+            "type": "string"
+        }
+    }
+}

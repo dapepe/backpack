@@ -1,0 +1,27 @@
+{
+    "label": {
+        "singular": "Milestone",
+        "plural": "Milestones"
+    },
+    "properties": {
+        "revenue": {
+            "label": "Monthly revenue",
+            "type": "string",
+            "filter": "float"
+        },
+        "month": {
+            "label": "Month (mm/yy)",
+            "type": "string",
+            "filter": "regexp",
+            "regexp": "/[0-9]{2}\\/[0-9]{2}/"
+        },
+        "comment": {
+            "label": "Comment",
+            "type": "string",
+            "filter": "min_length",
+            "len": 5
+        }
+    },
+    "contenttype": "none",
+    "icon": "star"
+}

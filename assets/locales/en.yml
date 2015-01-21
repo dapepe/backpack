@@ -1,0 +1,395 @@
+# English translation for Backpack
+
+lang:
+  name: "English"
+  code: "en"
+
+date:
+  format:
+    # Use the strftime parameters for formats.
+    # When no format has been given, it uses default.
+    # You can provide other formats here if you like!
+    default: "%m/%d/%Y"
+    short: "%b %d"
+    long: "%B %d, %Y"
+
+  day_names:      [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+  abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
+
+  # Don't forget the nil at the beginning; there's no such thing as a 0th month
+  month_names:      [~, January, February, March, April, May, June, July, August, September, October, November, December]
+  abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+
+language:
+  experience: [Beginner, Intermediate, Proficient, Fluent, Expert, Native]
+  proficiency: "Proficiency"
+
+time:
+  format:
+    default:  "%m/%d/%Y %I:%M %p"
+    time:     "%I:%M %p"
+    short:    "%d %b %H:%M"
+    long:     "%B %d, %Y %H:%M"
+  am:       "am"
+  pm:       "pm"
+  first_day_of_week: 7
+
+datetime:
+  distance_in_words:
+    half_a_minute: "half a minute"
+    less_than_x_seconds:
+      one:   "less than 1 second"
+      other: "less than {count} seconds"
+    x_seconds:
+      one:   "1 second"
+      other: "{count} seconds"
+    less_than_x_minutes:
+      one:   "less than a minute"
+      other: "less than {count} minutes"
+    x_minutes:
+      one:   "1 minute"
+      other: "{count} minutes"
+    about_x_hours:
+      one:   "about 1 hour"
+      other: "about {count} hours"
+    x_days:
+      one:   "1 day"
+      other: "{count} days"
+    about_x_months:
+      one:   "about 1 month"
+      other: "about {count} months"
+    x_months:
+      one:   "1 month"
+      other: "{count} months"
+    about_x_years:
+      one:   "about 1 year"
+      other: "about {count} years"
+    over_x_years:
+      one:   "over 1 year"
+      other: "over {count} years"
+    almost_x_years:
+      one:   "almost 1 year"
+      other: "almost {count} years"
+
+number:
+  # Default format for numbers
+  format:
+    separator: "."
+    delimiter: ","
+    precision: 2
+  currency:
+    format:
+      unit: '$'
+      format: '%n %u'
+      separator:
+      delimiter:
+      precision:
+  percentage:
+    format:
+      delimiter: ""
+  precision:
+    format:
+      delimiter: ""
+  human:
+    format:
+      delimiter: ""
+      precision: 1
+    storage_units:
+      format: "%n %u"
+      units:
+        byte:
+          one: "Byte"
+          other: "Bytes"
+        kb: "KB"
+        mb: "MB"
+        gb: "GB"
+        tb: "TB"
+
+common:
+  no:  "no"
+  yes: "yes"
+  all: "all"
+
+message:
+  update:               "{model} updated"
+  create:               "{model} created"
+  remove:               "{model} removed"
+  restore:              "{model} restored"
+  activate:             "{model} activated"
+  deactivate:           "{model} deactivated"
+  change:               "{model} changed"
+  add:                  "{model} added"
+  error:                "The following errors occurred:"
+  passwordreset:        "Password reset and notification sent to your email address"
+  passwordsmustmatch:   "Passwords must match"
+  import:               "{model} imported successfully"
+  confirm_mail:         "We have sent you a confirmation e-mail with the next steps!"
+  remove_model:         "Remove {model}"
+
+confirm:
+  remove:               "Do you really want to remove {value}"
+  remove_model:         "Do you really want to remove this {model}"
+
+error:
+  regexp:               "Value does not match the required format: {regexp}"
+  create:               "Could not create new {model}"
+  update:               "Could not update {model}"
+  remove:               "Could not remove {model}"
+  add:                  "Could not add {model}"
+  import:               "Could not import {model}"
+  noselection:          "No {model} selected"
+  one:                  "1 error prohibited this {model} from being saved"
+  other:                "{count} errors prohibited this {model} from being saved"
+  inclusion:            "{value} is not included in the list"
+  exclusion:            "{value} is reserved"
+  invalid:              "{value} is invalid"
+  confirmation:         "{value} does not match confirmation"
+  accepted:             "{value} must be accepted"
+  empty:                "{value} cannot be empty"
+  blank:                "{value} cannot be blank"
+  too_long:             "{value} is too long (maximum is {count} characters)"
+  too_short:            "{value} is too short (minimum is {count} characters)"
+  wrong_length:         "{value} is the wrong length (should be {count} characters)"
+  taken:                "{value} has already been taken"
+  this_taken:           "This {field} has already been taken"
+  not_a_number:         "{value} is not a number"
+  not_a_date:           "{value} is not a valid date"
+  not_a_int:            "{value} is not a valid integer number"
+  not_a_url:            "{value} is not a valid URL"
+  not_a_address:        "{value} is not a valid {type} address"
+  not_set:              "{field} is not set"
+  username:             "{value} is not a valid user name (2 characters or more, only letters, digits, dot \".\" and minus \"-\")."
+  identifier:           "{value} is not a valid identifier (2 characters or more, only letters, digits, dot \".\" and minus \"-\")."
+  resource:             "Invalid resource name {value} (2 characters or more, only letters, digits, dot \".\" and minus \"-\")."
+  password:             "Invalid password (5 characters or more, at least one capital letter, a small letter and a digit)."
+  password_no_match:    "Passwords do not match"
+  greater_than:         "{value} must be greater than {count}"
+  equal_to:             "{value} must be equal to {count}"
+  less_than:            "{value} must be less than {count}"
+  in_between:           "{value} must be between {min} and {max}"
+  odd:                  "{value} must be odd"
+  even:                 "{value} must be even"
+  start_before_end:     "Start date must be before end date"
+  date_start_end:       "{value} must be before end date ({end})"
+  date_range:           "{value} must be in the time range {min} - {max}"
+  circular_dependency:  "This relation would create a circular dependency"
+  wrongcredentials:     "Wrong username or password"
+  wrong_password:       "Wrong password"
+  loginrequired:        "You must be logged in to display this view"
+  defaultlang_not_set:  "Default language not set"
+  date_invalid:         "Date invalid"
+  trans_value:          "The translation value could not be set correctly"
+  no_data:              "No data"
+  no_options:           "No options available"
+  invalid_value:        "Invalid value supplied for {value}"
+  name_already_exists:  "Name {value} already exists"
+  invalid_id_entity:    "Invalid ID given for entity {field}"
+  invalid_field_type:   "Invalid field type given"
+  invalid_lang_code:    "Invalid language code {value}"
+  no_language_selected: "No language selected!"
+  unknown:              "Unknown error"
+
+action:
+  ok            : "Ok"
+  update        : "Update"
+  refresh       : "Refresh"
+  login         : "Login"
+  logout        : "Logout"
+  add           : "Add"
+  add_model     : "Add {model}"
+  remove        : "Remove"
+  delete        : "Delete"
+  save          : "Save"
+  save_next     : "Save & next"
+  save_close    : "Save & close"
+  close         : "Close"
+  changepwd     : "Change Password"
+  restore       : "Restore"
+  activate      : "Enable"
+  deactivate    : "Disable"
+  execute       : "Run"
+  signup        : "Sign up"
+  submit        : "Submit"
+  reset         : "Reset"
+  import        : "Import"
+  invite        : "Invite"
+  back          : "Back"
+  forward       : "Forward"
+  confirm       : "Confirm"
+  edit          : "Edit"
+  edit_model    : "Edit {model}"
+  leave         : "Leave"
+  search        : "Search"
+  search_by     : "Search by {model}"
+  next          : "Next"
+  previous      : "Previous"
+  translate     : "Translate"
+  history       : "History"
+  export_format : "Export {format}"
+  export        : "Export"
+
+role:
+  guest:       "Guest"
+  member:      "Member"
+  contributor: "Contributor"
+  manager:     "Manager"
+  admin:       "Administrator"
+
+fieldtype:
+  group:       "Group"
+  string:      "String"
+  text:        "Text"
+  list:        "List"
+
+entity:
+  user:
+    singular: "User"
+    plural:   "Users"
+  project:
+    singular: "Project"
+    plural:   "Projects"
+  language:
+    singular: "Language"
+    plural:   "Languages"
+  organization:
+    singular: "Organization"
+    plural:   "Organizations"
+  activity:
+    singular: "Activity"
+    plural:   "Activities"
+  field:
+    singular: "Field"
+    plural:   "Fields"
+  group:
+    singular: "Group"
+    plural:   "Groups"
+  value:
+    singular: "Value"
+    plural:   "Values"
+
+field:
+  id:               "Id"
+  username:         "Username"
+  password:         "Password"
+  email:            "E-mail address"
+  data:             "Data"
+  lastname:         "Last name"
+  firstname:        "First name"
+  surname:          "Last name"
+  confirmpassword:  "Confirm password"
+  gravatar_link:    "Gravatar link"
+  company:          "Company"
+  address:          "Address"
+  zipcode:          "Zipcode"
+  city:             "City"
+  state:            "State"
+  province:         "Province"
+  country:          "Country"
+  phone:            "Phone number"
+  fax:              "Fax number"
+  website:          "Website"
+  vat:              "VAT ID"
+  description:      "Description"
+  name:             "Name"
+  public:           "Public"
+  private:          "Private"
+  pleaseselect:     "Please select"
+  invite:           "Invitation"
+  defaultlanguage:  "Default language"
+  defaultrole:      "Default role"
+  date:             "Date"
+  file:             "File"
+  source:           "Source code"
+  personalinfo:     "Personal information"
+  identifier:       "Identifier"
+  experience:       "Experience"
+  type:             "Type"
+  parent_group:     "Parent group"
+  trans_value:      "Translation value"
+  trans_field:      "Translation field"
+  trans_grp:        "Translation group"
+  feedback:         "Feedback"
+  progress:         "Progress"
+
+filter:
+  all_langs:        "All languages"
+  project_root:     "Project root"
+
+view:
+  login:
+    stayloggedin:   "Stay logged in"
+    forgotpassword: "Forgot your password?"
+    resetpassword:  "Password reset"
+  account:
+    profile:        "Profile"
+    account:        "Account"
+    notification:   "Notification"
+    projects:       "Projects"
+    organization:   "Organization"
+    address_info:   "Address information"
+    my_repos:       "My Projects"
+    role:           "Role"
+    new_repo:       "Create new project"
+    all_repos:      "View all projects"
+    acc_perm_del:   "Your account will be deleted permanently"
+    acc_delete:     "Delete my account"
+    confirm_delete: "Do you really want to delete your account?"
+    old_password:   "Old password"
+    new_password:   "New password"
+    confirm_pw:     "Confirm new password"
+    change_pw:      "Change Password"
+    identifier:     "Identifier"
+    new_org:        "Create new organisation"
+    naming:         "Naming"
+  new:
+    visibility:     "Visibility"
+  details:
+    current_role:   "Your current role"
+    wrapup:         "Wrapup"
+    coversheet:     "Info"
+    history:        "History"
+    todo:           "Todo"
+    translation:    "Translation"
+    members:        "Team"
+    group:          "Group"
+    field:          "Field"
+    activity:       "Recent Activity"
+    no_date:        "No changes yet"
+    edit_field:     "Edit field"
+    language_count: "Number of languages"
+    field_count:    "Number of fields"
+    metrics:        "Metrics"
+    team:           "Team"
+    info:           "Information"
+    new_group:      "Create new group"
+    new_field:      "Create new field"
+    no_entry:       "No Entry"
+    add_language:   "Add language"
+    download:       "Download"
+    import:         "Import"
+    export:         "Export"
+    chooseLangs:    "Please choose languages for translation"
+    all:            "All"
+    settings:       "Settings"
+    general:        "General"
+    general_set:    "General Project Settings"
+    language_set:   "Project Language Settings"
+    team_set:       "Project Team Members"
+    remove_project: "Remove Project"
+    discussion:     "Discussion"
+    entervalue:     "Please enter your translation value here:"
+    hitenter:       "Press enter to add a new list item; Use drag/drop to sort"
+    select_lang:    "Select a language to start "
+    untranslated:   "Only untranslated"
+  explore:
+    statistics:     "Statistics"
+    langs_used:     "Most used languages"
+    projs4lang:     "Projects for language"
+  search:
+    last_modified:  "Last Modified"
+    values:         "Values"
+    results:        "Search results for"
+  organization:
+    invite:         "Invite new members"
+    members:        "Members"
+    subscription:   "Subscription"
