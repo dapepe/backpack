@@ -90,12 +90,29 @@ buidling a concatianted and minified version.
 Instance Configuration
 ----------------------
 
-MongoDB settings:
+When you check out the file structure, you will notice a directory called `instances`.
+This directory contains the configuration files for all your different MongoDB connections.
+
+The name of the directory reflects the name of the instance - the instance name is later being 
+used for the login, which has the format `username@instancename`. (More on that later)
+
+Inside the instance directory you will find a file called `config.json` and a directory
+called `collections`. The collections folder will contain the configuration files for
+all your collections - the format for those files is described in the upcoming section.
+
+When you checkout or download Backpack, you will see two example configurations called
+"bluemixdemo" and "localdemo". The `config.json` contains three parameters:
+
+* The connection URL and database name for MongoDB.
+* The path to your cache directory, which is used to cache preview images
+* The fixed password for your root user
+
+So, a sample configuration file for your local MongoDB installation could look like this:
 
 ```json
 {
     "mongo": {
-        "host": "mongodb://127.0.0.1:27017",
+        "url" : "mongodb://127.0.0.1:27017",
         "db"  : "backpack"
     },
     "cache": "./cache",
@@ -104,16 +121,17 @@ MongoDB settings:
 ```
 
 If you are running on [IBM Bluemix](http://www.bluemix.net) you can also simply
-put the service name into to Mongo settings:
+put the service name into to Mongo settings - see the Bluemix installation guide
+bellow:
 
 ```json
 {
     "mongo": {
         "service": "servicename"
-    }
+    },
+    "rootpwd": "demo"
 }
 ```
-
 
 
 Collection Configuration
@@ -313,7 +331,7 @@ Simple follow those instructions to deploy Backpack on Bluemix:
 
 ### Step 1: Sign-up for Bluemix ###
 
-Go to the (Bluemix Website)[http://bluemix.net] and signup for a free account.
+Go to the [Bluemix Website](http://bluemix.net) and signup for a free account.
 
 ### Step 2: Download and configure Backpack ###
 
@@ -332,7 +350,7 @@ applications:
   host: {your-host-name}
   domain: mybluemix.net
   path: .
-  buildpack: https://github.com/dmikusa-pivotal/cf-php-build-pack.git
+  buildpack: https://github.com/cloudfoundry/php-buildpack.git
 ```
 
 In this file, you should now edit the following options:
@@ -342,6 +360,23 @@ In this file, you should now edit the following options:
 * `instances`: The number of instances (can stay at 1)
 * `host`: Your app host name
 * `domain`: The application domain (if unsure, leave mybluemix.net)
+
+Next thing you need to do, is adding an instance configration, as described in configuration
+guide above.
+
+Simply edit the `config.json` you will find as an example in the `bluemixdemo` instance and
+put the name of your MongoDB service in the settings. In this example, I have called
+the service `mongo-backpack`. If you have to create a new MongoDB service (see step 4)
+make sure you give it the same name as in this instance configuration file:
+
+```json
+{
+    "mongo": {
+        "service": "mongo-backpack"
+    },
+    "rootpwd": "demo"
+}
+```
 
 
 ### Step 3: Push Backpack on Bluemix ###
@@ -363,26 +398,37 @@ After you are successfully logged in, you can upload backpack with the following
 cf push -f manifest.yml
 ```
 
+
+### Step 4: Create a new MongoDB service ###
+
 Almost done! Now, we need to create a new service for MongoDB and connect it with Backpack.
 Note that `{app-identifier}` is the same value as the `name` attribute you have specified in
-you `manifest.yml`.
+you `manifest.yml` and `{db-identifier}` is the same value as the `mongo.service` parameter
+in your instance's `config.json`.
 
 ```
-cf create-service mongodb 100 mongo-backpack
-cf bind-service {app-identifier} mongo-backpack
+cf create-service mongodb 100 {db-identifier}
+cf bind-service {app-identifier} {db-identifier}
 ```
 
-Please note that `mongo-backpack` is the identifier for the MongoDB service. You are of course
-free to select your own identifier.
-
-In order to ensure that the app environment gets update, restart your application:
+In order to ensure that the app environment gets updated, restart your application:
 
 ```
 cf restart {app-identifier}
 ```
 
 
-### Step 4: Create a MongoDB user ###
+### Step 5: Login and test ###
+
+You should now be able to login to your Backpack application. Login as `root@{instancename}`
+(whereas `{instancename}` is the name you have selected for your instance directory)
+and use the password your have specified in your `config.json` file.
+
+In case something does not work out as planned, check the application log file for advice:
+
+```
+cf logs {app-identifier} --recent
+```
 
 
 About
@@ -394,6 +440,8 @@ it at [www.zeyos.com](https://www.zeyos.com) - we make great things happen for e
 Backpack has been used in a variety of projects, where customers needed a simple way to enter data
 or to add content for various web applications, such as online shops, service portals or
 web sites.
+
+If you need information on commercial support or licensing, please contact us at [info@zeyos.com](mailto:info@zeyos.com).
 
 
 Contributing

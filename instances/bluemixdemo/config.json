@@ -1,5 +1,5 @@
 {
     "mongo": {
-        "service": ""
+        "service": "bluemix-demo"
     }
 }
