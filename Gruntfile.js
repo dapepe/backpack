@@ -67,7 +67,35 @@ module.exports = function(grunt) {
                 files: ['assets/src/less/*.less'],
                 tasks: ['less']
             }
-        }
+        },
+		compress: {
+			main: {
+				options: {
+					mode: 'zip',
+					archive: './releases/<%= pkg.name %>-<%= pkg.version %>.zip'
+				},
+				files: [
+					{src: ['./*'], filter: 'isFile'}, // includes files in path
+					{src: [
+						'.cfignore',
+						'.htaccess',
+						'./.bp-config/**',
+						'./assets/**',
+						'./bower_components/**',
+						'./cache/**',
+						'./instances/**',
+						'./lib/**',
+						'./vendor/**'
+					]}
+				]
+			}
+		},
+		clean: {
+			release: [
+				'instances/bluemixdemo/cache/',
+				'instances/localdemo/cache/'
+			]
+		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -75,6 +103,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-compress');
+	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-jsvalidate');
 
     /**
@@ -122,4 +152,5 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('default' , ['jsvalidate', 'concat', 'less', 'uglify', 'requirejs:dist']);
 	grunt.registerTask('dev'     , ['requirejs:dev', 'less', 'watch']);
+	grunt.registerTask('release' , ['default', 'clean', 'compress']);
 };
