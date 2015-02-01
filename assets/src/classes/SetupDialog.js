@@ -16,7 +16,7 @@ Backpack.SetupDialog = new Class({
         this.footer = new Element('div');
         this.dropup = new gx.bootstrap.Popup({
             'width'   : 600,
-            'closable': false,
+            'closable': true,
             'content': this.body,
             'footer': this.footer,
             'onShow': function() {

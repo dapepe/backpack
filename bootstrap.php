@@ -11,31 +11,37 @@
 
 /* Initialize includes
 --------------------------------------------------- */
-define('BASE_DIR',   dirname(__FILE__).DIRECTORY_SEPARATOR);
-define('LIB_DIR',    BASE_DIR.'lib'.DIRECTORY_SEPARATOR);
-define('VENDOR_DIR', BASE_DIR.'vendor'.DIRECTORY_SEPARATOR);
+define('BASE_DIR', dirname(__FILE__).DIRECTORY_SEPARATOR);
+
+if (defined('LIBDIR')) {
+	define('LIB_DIR', LIBDIR.(substr(LIBDIR, -1) != DIRECTORY_SEPARATOR ? DIRECTORY_SEPARATOR : ''));
+} else {
+	define('LIB_DIR', BASE_DIR.'lib'.DIRECTORY_SEPARATOR);
+}
 
 set_include_path(
+	get_include_path().PATH_SEPARATOR.
 	LIB_DIR.PATH_SEPARATOR.
-	VENDOR_DIR.PATH_SEPARATOR.
 	BASE_DIR.PATH_SEPARATOR
 );
+
 
 /* Specify application constants
 --------------------------------------------------- */
 define('API_DIR',   LIB_DIR.'api'.DIRECTORY_SEPARATOR);
 define('ASSET_DIR', BASE_DIR.'assets'.DIRECTORY_SEPARATOR);
 
-/* Load the libraries
+/* Load the composer libraries
 --------------------------------------------------- */
-require 'mustangostang/spyc/spyc.php';
+require 'vendor/mustangostang/spyc/Spyc.php';
+require 'vendor/zeyon/rest/src/server.php';
+require 'vendor/zeyon/rest/src/client.php';
+require 'vendor/zeyon/rest/src/validator.php';
+require 'vendor/zeyon/rest/src/localizer.php';
+require 'vendor/zeyon/rest/src/mime.php';
 
-require 'zeyon/rest/src/server.php';
-require 'zeyon/rest/src/client.php';
-require 'zeyon/rest/src/validator.php';
-require 'zeyon/rest/src/localizer.php';
-require 'zeyon/rest/src/mime.php';
-
+/* Load backpack libraries
+--------------------------------------------------- */
 require 'backpack/localizer.class.php';
 require 'backpack/api.class.php';
 require 'backpack/app.class.php';

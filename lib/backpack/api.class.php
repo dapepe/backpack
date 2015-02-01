@@ -197,17 +197,17 @@ class APIFactory {
 	 * @return API
 	 */
 	static public function get($apiName) {
-		if ( !file_exists(API_DIR.$apiName.'.php') )
+		if (!stream_resolve_include_path('api'.DIRECTORY_SEPARATOR.$apiName.'.php'))
 			throw new \Exception('Unknown API "'.$apiName.'".');
 
 		$apiClass = '\\Backpack\\'.ucfirst($apiName).'API';
 
-		if ( isset(self::$instances[$apiClass]) )
+		if (isset(self::$instances[$apiClass]))
 			return self::$instances[$apiClass];
 
 		// Load and instantiate API class
 
-		require_once(API_DIR.$apiName.'.php');
+		require_once('api'.DIRECTORY_SEPARATOR.$apiName.'.php');
 
 		if ( !class_exists($apiClass) )
 			throw new \Exception('Unknown API "'.$apiClass.'".');

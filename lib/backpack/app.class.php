@@ -105,7 +105,7 @@ class App {
 		} else {
 			// Validate username and password
 			$user = $this->mongoDb->selectCollection($this->config['usercollection'])->findOne(['user' => $strUsername]);
-			if (!(is_array($user) && isset($user['pwd']) && md5($strUsername.":mongo:".$strPassword) == md5($strUsername.":mongo:".$user['pwd'])))
+			if (!(is_array($user) && isset($user['pwd']) && md5($strUsername.":mongo:".$strPassword) == $user['pwd']))
 				throw new \Exception('Invalid username or password');
 		}
 
@@ -177,10 +177,18 @@ class App {
 		// Initialize the Bluemix/CF configuration
 		if (isset($config['mongo']['service'])) {
 			$services = json_decode(getenv("VCAP_SERVICES"), true);
-			foreach ($services as $service) {
-				if ($service['name'] == $config['mongo']['service']) {
-					$config['mongo'] = array_merge($config['mongo'], $service['name']);
-					break;
+			foreach ($services as $type => $servicelist) {
+				if (!preg_match('/mongo/', $type))
+					continue;
+
+				foreach ($servicelist as $type => $service) {
+					if ($service['name'] == $config['mongo']['service']) {
+						if (isset($service['credentials']))
+							$config['mongo'] = array_merge($config['mongo'], $service['credentials']);
+						else
+							$config['mongo'] = array_merge($config['mongo'], $service);
+						break;
+					}
 				}
 			}
 
