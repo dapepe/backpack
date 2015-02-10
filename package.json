@@ -1,11 +1,11 @@
 {
-  "name": "Backpack",
-  "version": "0.1.0",
+  "name": "backpackweb",
+  "version": "1.0.0",
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-less": "~0.8.2",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-markdown": "^0.6.1",
+    "grunt-minify-html": "^2.0.0",
     "grunt-replace": "^0.8.0"
   }
 }

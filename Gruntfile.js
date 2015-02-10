@@ -1,5 +1,6 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
         less: {
             development: {
                 options: {
@@ -13,26 +14,40 @@ module.exports = function(grunt) {
         },
         watch: {
             scripts: {
-                files: ["assets/css/*.less", "./src/*"],
-                tasks: ["less", "markdown"]
+                files: ['index.src.html'],
+                tasks: ['replace', 'minifyHtml']
             }
         },
-        markdown: {
-            all: {
-                files: {
-                    'index.html': './src/index.md'
-                },
+        replace: {
+            dist: {
                 options: {
-                    template: './src/template.html',
+                    patterns: [
+                        {
+                            match: 'version',
+                            replacement: '<%= pkg.version %>'
+                        }
+                    ]
+                },
+                files: {
+                    './temp/index.html': './index.src.html'
+                }
+            }
+        },
+
+        minifyHtml: {
+            options: {},
+            dist: {
+                files: {
+                    'index.html': './temp/index.html'
                 }
             }
         }
     });
 
-    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-markdown');
+    grunt.loadNpmTasks('grunt-replace');
+    grunt.loadNpmTasks('grunt-minify-html');
 
-    grunt.registerTask('default', ['less', 'markdown']);
-    grunt.registerTask('dev'    , ['less', 'markdown', 'watch']);
+    grunt.registerTask('default', ['replace', 'minifyHtml']);
+    grunt.registerTask('dev', ['replace', 'minifyHtml', 'watch']);
 };

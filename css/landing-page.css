@@ -1,0 +1,314 @@
+/*!
+ * Start Bootstrap - Landing Page Bootstrap Theme (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+.clear {
+    clear: both;
+}
+.m_r {
+    margin-right: 0.4em;
+}
+.m_l {
+    margin-left: 0.4em;
+}
+.a_c {
+    text-align: center;
+}
+.p_v {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.block-center {
+    margin: 0 auto;
+}
+
+.topnav {
+    font-size: 14px; 
+}
+
+.lead {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.intro-header:before {
+    content: "";
+    display: block;
+    height: 20%;
+    width: 100%;
+}
+.intro-header {
+    /* padding-top: 50px;  If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: 50px;
+    text-align: center;
+    color: #f8f8f8;
+    background: url(../img/intro-bg.jpg) no-repeat center center;
+    background-size: cover;
+    height: 100%;
+}
+
+.intro-message {
+    position: relative;
+}
+
+.intro-message > h1 {
+    margin: 0;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    font-size: 5em;
+}
+
+.intro-divider {
+    width: 400px;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.intro-message > h3 {
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+}
+
+@media(max-width:767px) {
+    .intro-message {
+        padding-bottom: 15%;
+    }
+
+    .intro-message > h1 {
+        font-size: 3em;
+    }
+
+    ul.intro-social-buttons > li {
+        display: block;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+
+    ul.intro-social-buttons > li:last-child {
+        margin-bottom: 0;
+    }
+
+    .intro-divider {
+        width: 100%;
+    }
+}
+
+.network-name {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.content-section-a {
+    padding: 50px 0;
+    background-color: #f8f8f8;
+}
+
+.content-section-b {
+    padding: 50px 0;
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.section-heading {
+    margin-bottom: 30px;
+}
+
+.section-heading-spacer {
+    float: left;
+    width: 200px;
+    border-top: 3px solid #e7e7e7;
+}
+
+.banner h2 {
+    margin: 0;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    font-size: 3em;
+}
+
+.banner ul {
+    margin-bottom: 0;
+}
+
+.banner-social-buttons {
+    float: right;
+    margin-top: 0;
+}
+
+@media(max-width:1199px) {
+    ul.banner-social-buttons {
+        float: left;
+        margin-top: 15px;
+    }
+}
+
+@media(max-width:767px) {
+    .banner h2 {
+        margin: 0;
+        text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+        font-size: 3em;
+    }
+
+    ul.banner-social-buttons > li {
+        display: block;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+
+    ul.banner-social-buttons > li:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.modal {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+#bodybg {
+    -webkit-box-shadow: inset 0px 5px 11px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    inset 0px 5px 11px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         inset 0px 5px 11px 0px rgba(50, 50, 50, 0.75);
+
+    height: 100%;
+    background: url(../img/body-bg.jpg) no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+#sponsors {
+    background-color: rgba(255,255,255,0.8);
+    margin-top: 15px;
+    text-align: center;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 1px 11px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    2px 1px 11px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         2px 1px 11px 0px rgba(50, 50, 50, 0.75);
+    padding: 15px;
+}
+#sponsors > h2 {
+    margin: 0 0 15px 0;
+}
+#sponsors > p.bold {
+    font-size: 1.2em;
+}
+#sponsors > a > img {
+    margin-top: 20px;
+    display: inline-block;
+}
+#footer {
+    padding: 50px 0;
+    background-color: rgba(255,255,255,0.7);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+p.copyright {
+    margin: 15px 0 0;
+}
+
+#centerbg {
+    background: #feffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #feffff 0%, #d7dee0 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#feffff), color-stop(100%,#d7dee0)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #feffff 0%,#d7dee0 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #feffff 0%,#d7dee0 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #feffff 0%,#d7dee0 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #feffff 0%,#d7dee0 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#d7dee0',GradientType=0 ); /* IE6-9 */
+}
+
+#intro {
+    padding: 20px 0
+}
+
+#intro h3 {
+    line-height: 1.4em;
+}
+#intro p {
+    font-size: 1.2em;
+    line-height: 1.4em;
+}
+#intro button {
+    margin-top: 20px;
+}
+
+
+#dataitems > div {
+    margin-top: 7px;
+}
+
+.item-html > span > .fa-circle {
+    color: #CE3838;
+}
+.item-code > span > .fa-circle {
+    color: #38A3CE;
+}
+.item-images > span > .fa-circle {
+    color: #eab63f;
+}
+.item-lists > span > .fa-circle {
+    color: #4437ea;
+}
+.item-forms > span > .fa-circle {
+    color: #38CE4D;
+}
+
+#device {
+    display: inline-block;
+}
+
+#device > div {
+    position: relative;
+    margin: 0 auto;
+}
+
+#device > div > button {
+    z-index: 2;
+    position: absolute;
+    text-align: center;
+    width: 240px;
+    top: 40%;
+    left: 50%;
+    margin-left: -120px;
+    opacity: 0.5;
+}
+
+#device > div > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 3.746397694524496%;
+    padding-left: 4.244031830238727%;
+    padding-right: 4.244031830238727%;
+}
+#device > div img {
+    max-width: 100%;
+}
