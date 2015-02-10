@@ -103,9 +103,10 @@ all your collections - the format for those files is described in the upcoming s
 When you checkout or download Backpack, you will see two example configurations called
 "bluemixdemo" and "localdemo". The `config.json` contains three parameters:
 
-* The connection URL and database name for MongoDB.
-* The path to your cache directory, which is used to cache preview images
-* The fixed password for your root user
+* `mongo`: The connection URL and database name for MongoDB.
+* `cache`: The path to your cache directory, which is used to cache preview images
+* `rootpwd`: The fixed password for your root user
+* `usercollection`
 
 So, a sample configuration file for your local MongoDB installation could look like this:
 
@@ -116,7 +117,8 @@ So, a sample configuration file for your local MongoDB installation could look l
         "db"  : "backpack"
     },
     "cache": "./cache",
-    "rootpwd": "secret"
+    "rootpwd": "secret",
+    "usercollection": "localusers"
 }
 ```
 
@@ -309,8 +311,11 @@ On Linux systems, simply create a file `/etc/cron.daily/backpack-cleanup`:
 
 ```
 #!/bin/sh
-php {path-to-backpack}/cleanup.php
+find {cachedirectory} -type f -mtime +30 -exec rm {} \;
 ```
+
+Replace `{cachedirectory}` with the path to your cache directory. This script will remove all temp files 
+older than 30 days.
 
 Make sure that your script is also executable:
 

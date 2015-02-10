@@ -5,7 +5,7 @@
     },
     "contenttype": "file:image",
     "icon": "picture",
-    "comment": "Abmessungen: Teaser 440x240px, Slider Home Left 700x500px, Slider Home Right 220x500px",
+    "comment": "Some comments",
     "index": {
         "position": 1
     },
@@ -18,17 +18,9 @@
             "type": "select",
             "options": {
                 "": "N/A",
-                "adidas": "Adidas",
-                "asics": "Asics",
-                "erima": "Erima",
-                "hummel": "hummel",
-                "kempa": "Kempa",
-                "mizuno": "Mizuno",
-                "molten": "Molten",
-                "rehband": "Rehband",
-                "salming": "Salming",
-                "select": "Select",
-                "stanno": "Stanno"
+                "brand1": "Brand name 1",
+                "brand2": "Brand name 2",
+                "brand3": "Brand name 3"
             }
         },
         "title": {
