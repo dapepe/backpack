@@ -559,11 +559,10 @@ class CollectionAPI extends API {
 
         array_unshift($hentity['_history'], $doc);
 
-        $appsettings = $this->app->getSession('appsettings');
         if ( !isset($this->app->config['historylength']) )
             throw new \Exception('You have to define a max histroy length in the settings!');
 
-        if ( count($hentity['_history']) > $appsettings['historylength'] )
+        if ( count($hentity['_history']) > $this->app->config['historylength'] )
             array_pop($hentity['_history']);
 
         $hentity['lastmodified'] = new \MongoDate();

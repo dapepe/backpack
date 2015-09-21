@@ -273,7 +273,7 @@ class App {
 			throw new \Exception('Directory not found: '.APP_DIR.$strFile);
 
 		$realpath = realpath(dirname(APP_DIR.$strFile)).DIRECTORY_SEPARATOR;
-		if (strpos($realpath, APP_DIR) === false)
+		if (strpos($realpath, APP_DIR) === false && isset($this->config['sandboxed']) && $this->config['sandboxed'])
 			throw new \Exception('Directory is outside the application directory! "'.$strFile.'" | "'.$realpath.'" "'.APP_DIR.'"');
 
 		return $realpath.pathinfo($strFile, PATHINFO_BASENAME);

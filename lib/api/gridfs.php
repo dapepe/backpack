@@ -498,7 +498,7 @@ class GridfsAPI extends API {
         if ( !isset($this->app->config['historylength']) )
             throw new \Exception('You have to define a max histroy length in the settings!');
 
-        if ( count($arrMeta['_history']) > $appsettings['historylength'] ) {
+        if ( count($arrMeta['_history']) > $this->app->config['historylength'] ) {
             $lastid = array_pop($arrMeta['_history']);
             $historyGrid->delete(new \MongoId($lastid));
         }
@@ -749,7 +749,6 @@ class GridfsAPI extends API {
         $hid = $historyGrid->storeBytes($file->getBytes(), $filemeta);
         array_unshift($hentitymeta['_history'], $hid);
 
-        $appsettings = $this->app->getSession('appsettings');
         if ( !isset($this->app->config['historylength']) )
             throw new \Exception('You have to define a max histroy length in the settings!');
 

@@ -106,7 +106,8 @@ When you checkout or download Backpack, you will see two example configurations 
 * `mongo`: The connection URL and database name for MongoDB.
 * `cache`: The path to your cache directory, which is used to cache preview images
 * `rootpwd`: The fixed password for your root user
-* `usercollection`
+* `usercollection`: The collection ID for local users (default: `system.users`)
+* `sandboxed`: If set, the instance can only access files inside the instance directory (default: 0)
 
 So, a sample configuration file for your local MongoDB installation could look like this:
 
