@@ -9,7 +9,7 @@
         "requirejs"      : "~2.1.15",
         "roboto-fontface": "~0.2.4",
         "ace"            : "https://github.com/ajaxorg/ace-builds.git",
-        "gx-core"        : "https://github.com/zeyon/gx-core.git",
-        "gx-bootstrap"   : "https://github.com/zeyon/gx-bootstrap.git"
+        "gx-core"        : "https://github.com/zeyosinc/gx-core.git",
+        "gx-bootstrap"   : "https://github.com/zeyosinc/gx-bootstrap.git"
     }
 }

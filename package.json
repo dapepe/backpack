@@ -5,7 +5,7 @@
   "author": "Peter Haider <peter.haider@zeyos.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zeyon/backpack"
+    "url": "https://github.com/dapepe/backpack"
   },
   "keywords": [
     "mongodb",
