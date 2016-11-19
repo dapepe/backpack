@@ -96,8 +96,9 @@ window.addEvent('view-console', function() {
                             section.filter = {
                                 'search': new Element('input', {'class': 'form-control', 'placeholder': 'Search'})
                                     .addEvent('keydown', function (e) {
-                                        if (e.key == 'enter')
+                                        if (e.key == 'enter') {
                                             section.load(section.finder, collection, schema);
+																				}
                                     }),
                                 'delButton': new Element('button', {
                                     'class': 'btn btn-default hint--left',

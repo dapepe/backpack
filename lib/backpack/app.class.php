@@ -100,7 +100,7 @@ class App {
 
 		// Authenticate the user
 		if ($strUsername == 'root') {
-			if ($strPassword != $this->config['rootpwd'])
+			if ($this->config['rootpwd'] && $strPassword != $this->config['rootpwd'])
 				throw new \Exception('Invalid username or password');
 		} else {
 			// Validate username and password
@@ -165,11 +165,11 @@ class App {
 
 		if (!is_dir($strAppDir))
 			throw new \Exception('Instance not found: '.$strAppId);
-		if (!is_readable($strAppDir.'config.json'))
+		if (!is_readable($strAppDir.'backpack.json'))
 			throw new \Exception('No configuration file found for instance '.$strAppId);
 
 		// Read the settings file
-		$config = json_decode(file_get_contents($strAppDir.'config.json'), true);
+		$config = json_decode(file_get_contents($strAppDir.'backpack.json'), true);
 
 		if (!isset($config['mongo']))
 			$config['mongo'] = [];
@@ -217,7 +217,7 @@ class App {
 			$config['usercollection'] = 'system.users';
 
 		if (!isset($config['rootpwd']))
-			$config['rootpwd'] = 'backpack';
+			$config['rootpwd'] = false;
 
 		if (!isset($config['historylength']) || !is_int($config['historylength']))
 			$config['historylength'] = 0;

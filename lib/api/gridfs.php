@@ -237,6 +237,25 @@ class GridfsAPI extends API {
             }
 		}
 
+		if (!isset($schema['searchfields']))
+			$schema['searchfields'] = 'title';
+
+		if (isset($arrQuery['search']) && $arrQuery['search'] != '') {
+			if (!is_array($schema['searchfields']))
+				$schema['searchfields'] = [];
+			if (!in_array('identifier', $schema['searchfields']))
+				$schema['searchfields'][] = 'identifier';
+
+			$saveQuery = [
+				'$and' => [
+					$saveQuery,
+					['$or' => []]
+				]
+			];
+			foreach ($schema['searchfields'] as $field)
+				$saveQuery['$and'][1]['$or'][] = [$field => new \MongoRegex('/.*'.preg_quote($arrQuery['search'], '/').'.*/i')];
+		}
+
 		if (isset($arrQuery['field']) && isset($arrQuery['field']['name']) && isset($arrQuery['field']['value'])) {
             $saveQuery[$arrQuery['field']['name']] = new \MongoRegex('/.*'.preg_quote($arrQuery['field']['value']).'.*/i');
 		}

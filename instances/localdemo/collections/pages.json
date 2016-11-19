@@ -26,6 +26,14 @@
         "banner": {
             "label": "Banner",
             "type": "reference:banners"
+        },
+        "lang": {
+            "label": "Language",
+            "type": "select",
+            "options": [
+                "German",
+                "English"
+            ]
         }
     }
 }

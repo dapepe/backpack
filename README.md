@@ -93,15 +93,15 @@ Instance Configuration
 When you check out the file structure, you will notice a directory called `instances`.
 This directory contains the configuration files for all your different MongoDB connections.
 
-The name of the directory reflects the name of the instance - the instance name is later being 
+The name of the directory reflects the name of the instance - the instance name is later being
 used for the login, which has the format `username@instancename`. (More on that later)
 
-Inside the instance directory you will find a file called `config.json` and a directory
+Inside the instance directory you will find a file called `backpack.json` and a directory
 called `collections`. The collections folder will contain the configuration files for
 all your collections - the format for those files is described in the upcoming section.
 
 When you checkout or download Backpack, you will see two example configurations called
-"bluemixdemo" and "localdemo". The `config.json` contains three parameters:
+"bluemixdemo" and "localdemo". The `backpack.json` contains three parameters:
 
 * `mongo`: The connection URL and database name for MongoDB.
 * `cache`: The path to your cache directory, which is used to cache preview images
@@ -204,8 +204,8 @@ The `contenttype` attribute defines your document's primary content.
 
 The following content types exist:
 
-| Content type |            Editor           |
-| ------------ | --------------------------- |
+| Content type | Editor                      |
+|:-------------|:----------------------------|
 | `txt`        | ACE Editor                  |
 | `css`        | ACE Editor                  |
 | `less`       | ACE Editor                  |
@@ -227,16 +227,15 @@ The `properties` object specifies the meta information that your document should
 This is the great thing about MongoDb - you are 100% flexible in the information you want
 to store for each document.
 
-You can specify additioal form fields and properties through the following attributes:
-
-|  Attribute   |     Type     |                                 Description                                 |
-| ------------ | ------------ | --------------------------------------------------------------------------- |
+You can specify additioal form fields and properties through the following | Attribute    | Type         | Description                                                                 |
+|:-------------|:-------------|:----------------------------------------------------------------------------|
 | `label`      | string       | The form label                                                              |
 | `type`       | string       | The field type (Possible values: `string`, `bool`, `select`, `reference:*`) |
 | `default`    | string       | The default value                                                           |
 | `options`    | object/array | An array or object with list options                                        |
 | `allowempty` | int(0,1)     | Allow empty value for select boxes                                          |
 | `filter`     | string       |                                                                             |
+            |
 
 
 #### References ####
@@ -247,10 +246,8 @@ would add a reference box to the `banners` collection.
 
 #### Filters ####
 
-Backpack also supports filters to validate your users' input. The following filter types exist:
-
-|    Filter    |                     Description                     | Additional params |
-| ------------ | --------------------------------------------------- | ----------------- |
+Backpack also supports filters to validate your users' input. The following | Filter       | Description                                         | Additional params |
+|:-------------|:----------------------------------------------------|:------------------|
 | `ipv4`       | Validate IP v4 addresses                            |                   |
 | `ipv6`       | Validate IP v6 addresses                            |                   |
 | `min_length` | Requires the value to be at least n characters long | `len`: int        |
@@ -262,6 +259,7 @@ Backpack also supports filters to validate your users' input. The following filt
 | `url`        | Validates URL format                                |                   |
 | `email`      | Validates e-mail format                             |                   |
 | `regexp`     | Validates the value agains a regular expression     | `regexp`: string  |
+| `regexp`: string  |
 
 
 ### published ###
@@ -315,7 +313,7 @@ On Linux systems, simply create a file `/etc/cron.daily/backpack-cleanup`:
 find {cachedirectory} -type f -mtime +30 -exec rm {} \;
 ```
 
-Replace `{cachedirectory}` with the path to your cache directory. This script will remove all temp files 
+Replace `{cachedirectory}` with the path to your cache directory. This script will remove all temp files
 older than 30 days.
 
 Make sure that your script is also executable:
@@ -370,7 +368,7 @@ In this file, you should now edit the following options:
 Next thing you need to do, is adding an instance configration, as described in configuration
 guide above.
 
-Simply edit the `config.json` you will find as an example in the `bluemixdemo` instance and
+Simply edit the `backpack.json` you will find as an example in the `bluemixdemo` instance and
 put the name of your MongoDB service in the settings. In this example, I have called
 the service `mongo-backpack`. If you have to create a new MongoDB service (see step 4)
 make sure you give it the same name as in this instance configuration file:
@@ -410,7 +408,7 @@ cf push -f manifest.yml
 Almost done! Now, we need to create a new service for MongoDB and connect it with Backpack.
 Note that `{app-identifier}` is the same value as the `name` attribute you have specified in
 you `manifest.yml` and `{db-identifier}` is the same value as the `mongo.service` parameter
-in your instance's `config.json`.
+in your instance's `backpack.json`.
 
 ```
 cf create-service mongodb 100 {db-identifier}
@@ -428,7 +426,7 @@ cf restart {app-identifier}
 
 You should now be able to login to your Backpack application. Login as `root@{instancename}`
 (whereas `{instancename}` is the name you have selected for your instance directory)
-and use the password your have specified in your `config.json` file.
+and use the password your have specified in your `backpack.json` file.
 
 In case something does not work out as planned, check the application log file for advice:
 

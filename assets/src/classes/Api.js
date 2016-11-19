@@ -80,4 +80,3 @@ Backpack.Api = new Class({
         return CollectionApi.restoreHistory(this.identifier, id, historyIdx, onSuccess, onFailure);
     }
 });
-

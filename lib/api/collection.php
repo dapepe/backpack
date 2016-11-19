@@ -194,7 +194,10 @@ class CollectionAPI extends API {
             }
 		}
 
-		if (isset($schema['searchfields']) && isset($arrQuery['search']) && $arrQuery['search'] != '') {
+		if (!isset($schema['searchfields']))
+			$schema['searchfields'] = 'title';
+
+		if (isset($arrQuery['search']) && $arrQuery['search'] != '') {
 			if (!is_array($schema['searchfields']))
 				$schema['searchfields'] = [];
 			if (!in_array('identifier', $schema['searchfields']))
