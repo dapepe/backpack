@@ -33,12 +33,7 @@ define('ASSET_DIR', BASE_DIR.'assets'.DIRECTORY_SEPARATOR);
 
 /* Load the composer libraries
 --------------------------------------------------- */
-require 'vendor/mustangostang/spyc/Spyc.php';
-require 'vendor/zeyon/rest/src/server.php';
-require 'vendor/zeyon/rest/src/client.php';
-require 'vendor/zeyon/rest/src/validator.php';
-require 'vendor/zeyon/rest/src/localizer.php';
-require 'vendor/zeyon/rest/src/mime.php';
+require 'vendor/autoload.php';
 
 /* Load backpack libraries
 --------------------------------------------------- */
