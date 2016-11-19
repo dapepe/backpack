@@ -371,7 +371,7 @@ class GridfsAPI extends API {
 		if ($file == null)
 			throw new \Exception('File not found: '.$strId);
 
-		header('Content-type: '.\REST\getMimetypeByExtension(pathinfo($file->getFilename(), PATHINFO_BASENAME)));
+		header('Content-type: '.\REST\Mime::getMimetypeByExtension(pathinfo($file->getFilename(), PATHINFO_BASENAME)));
 		$stream = $file->getResource();
 		while (!feof($stream))
 			echo fread($stream, 8192);
@@ -470,7 +470,7 @@ class GridfsAPI extends API {
             unset($arrMeta['_tempid']);
 
             $arrMeta['extension'] = $ext;
-            $arrMeta['mimetype']  = \REST\getMimetypeByExtension($ext);
+            $arrMeta['mimetype']  = \REST\Mime::getMimetypeByExtension($ext);
 
             $fsfile = CACHE_DIR.$filename;
 
@@ -488,7 +488,7 @@ class GridfsAPI extends API {
             unset($arrMeta['_historyid']);
 
             $arrMeta['extension'] = $ext;
-            $arrMeta['mimetype']  = \REST\getMimetypeByExtension($ext);
+            $arrMeta['mimetype']  = \REST\Mime::getMimetypeByExtension($ext);
         }
 
         // new entry
@@ -647,12 +647,12 @@ class GridfsAPI extends API {
 						throw new \Exception('No resizing option available');
 					}
 				}
-				header('Content-Type: '.\REST\getMimetypeByExtension($ext));
+				header('Content-Type: '.\REST\Mime::getMimetypeByExtension($ext));
 				header('Content-Disposition: inline; filename="'.$tempfile.'"');
 				echo file_get_contents(CACHE_DIR.$tempfile);
 			} else {
 				//header('Content-Type: '.getMimetypeByExtension($ext));
-				header('Content-Type: '.\REST\getMimetypeByExtension($ext));
+				header('Content-Type: '.\REST\Mime::getMimetypeByExtension($ext));
 				echo $file->getBytes();
 			}
 		} catch(\Exception $e) {
@@ -709,7 +709,7 @@ class GridfsAPI extends API {
 		if (!file_exists(CACHE_DIR.$strId) || filesize(CACHE_DIR.$strId) == 0)
 			throw new \Exception('Could not read temp file!');
 
-		header('Content-Type: '.\REST\getMimetypeByExtension(pathinfo(CACHE_DIR.$strId, PATHINFO_EXTENSION)));
+		header('Content-Type: '.\REST\Mime::getMimetypeByExtension(pathinfo(CACHE_DIR.$strId, PATHINFO_EXTENSION)));
 		header('Content-Disposition: inline; filename="'.$strId.'"');
 		header('Content-Length: '.filesize(CACHE_DIR.$strId));
 		echo file_get_contents(CACHE_DIR.$strId);

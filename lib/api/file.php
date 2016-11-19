@@ -375,7 +375,7 @@ class FileAPI extends API {
 		$ext = explode('.', $strFile);
 		$ext = $ext[count($ext)-1];
 
-		header('Content-Type: '.\REST\getMimetypeByExtension($ext));
+		header('Content-Type: '.\REST\Mime::getMimetypeByExtension($ext));
 		echo file_get_contents($thumbFile);
 		return new \REST\voidResult();
 	}
@@ -399,7 +399,7 @@ class FileAPI extends API {
 		$ext = explode('.', $strFile);
 		$ext = $ext[count($ext)-1];
 
-		header('Content-Type: '.\REST\getMimetypeByExtension($ext));
+		header('Content-Type: '.\REST\Mime::getMimetypeByExtension($ext));
 		echo file_get_contents($strFile);
 		return new \REST\voidResult();
 	}
