@@ -146,7 +146,7 @@ try {
 		],
 		[
 			$e->getFile().' ('.$e->getLine().'): '.$e->getMessage(),
-			str_replace("\n", '<br />', htmlentities(REST\errorTrace($e)))
+			str_replace("\n", '<br />', htmlentities(REST\Error::errorTrace($e)))
 		],
 		file_get_contents(ASSET_DIR.'src'.DIRECTORY_SEPARATOR.'template'.DIRECTORY_SEPARATOR.'error.html')
 	);
