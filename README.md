@@ -227,7 +227,9 @@ The `properties` object specifies the meta information that your document should
 This is the great thing about MongoDb - you are 100% flexible in the information you want
 to store for each document.
 
-You can specify additioal form fields and properties through the following | Attribute    | Type         | Description                                                                 |
+You can specify additioal form fields and properties through the following Attributes:
+
+| Attribute    | Type         | Description                                                                 |
 |:-------------|:-------------|:----------------------------------------------------------------------------|
 | `label`      | string       | The form label                                                              |
 | `type`       | string       | The field type (Possible values: `string`, `bool`, `select`, `reference:*`) |
@@ -235,7 +237,6 @@ You can specify additioal form fields and properties through the following | Att
 | `options`    | object/array | An array or object with list options                                        |
 | `allowempty` | int(0,1)     | Allow empty value for select boxes                                          |
 | `filter`     | string       |                                                                             |
-            |
 
 
 #### References ####
@@ -246,7 +247,9 @@ would add a reference box to the `banners` collection.
 
 #### Filters ####
 
-Backpack also supports filters to validate your users' input. The following | Filter       | Description                                         | Additional params |
+Backpack also supports filters to validate your users' input. 
+
+| Filter       | Description                                         | Additional params |
 |:-------------|:----------------------------------------------------|:------------------|
 | `ipv4`       | Validate IP v4 addresses                            |                   |
 | `ipv6`       | Validate IP v6 addresses                            |                   |
@@ -259,7 +262,6 @@ Backpack also supports filters to validate your users' input. The following | Fi
 | `url`        | Validates URL format                                |                   |
 | `email`      | Validates e-mail format                             |                   |
 | `regexp`     | Validates the value agains a regular expression     | `regexp`: string  |
-| `regexp`: string  |
 
 
 ### published ###
