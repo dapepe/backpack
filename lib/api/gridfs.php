@@ -376,7 +376,7 @@ class GridfsAPI extends API {
 		while (!feof($stream))
 			echo fread($stream, 8192);
 
-		return new RESTvoidResult();
+		return new \REST\VoidResult();
 	}
 
 	/**
@@ -609,7 +609,7 @@ class GridfsAPI extends API {
 	 * @param  string $strBucket  The Bucket name
 	 * @param  string $strId      The file identifier or path
 	 * @param  int    $intSize
-	 * @return RESTvoidResult
+	 * @return \REST\VoidResult
 	 */
 	public function do_preview_file($strBucket, $strId, $intSize = 0) {
 		$this->requireConnection();

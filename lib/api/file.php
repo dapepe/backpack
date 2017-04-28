@@ -377,7 +377,7 @@ class FileAPI extends API {
 
 		header('Content-Type: '.\REST\Mime::getMimetypeByExtension($ext));
 		echo file_get_contents($thumbFile);
-		return new \REST\voidResult();
+		return new \REST\VoidResult();
 	}
 
 	/**
@@ -401,7 +401,7 @@ class FileAPI extends API {
 
 		header('Content-Type: '.\REST\Mime::getMimetypeByExtension($ext));
 		echo file_get_contents($strFile);
-		return new \REST\voidResult();
+		return new \REST\VoidResult();
 	}
 
 	/**
@@ -425,7 +425,7 @@ class FileAPI extends API {
 		header('Content-Type: application/force-download');
 
 		echo file_get_contents($strFile);
-		return new \REST\voidResult();
+		return new \REST\VoidResult();
 	}
 }
 
