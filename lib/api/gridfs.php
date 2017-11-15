@@ -352,7 +352,7 @@ class GridfsAPI extends API {
 	 *
 	 * @param  string $strBucket  The Bucket name
 	 * @param  string $strId      The file identifier or path
-	 * @return RESTvoidResult
+	 * @return RESTVoidResult
 	 */
 	public function do_download_file($strBucket, $strId) {
 		$this->requireConnection();
@@ -661,7 +661,7 @@ class GridfsAPI extends API {
 			echo file_get_contents(BASE_DIR.DIRECTORY_SEPARATOR.'assets'.DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'placeholder.png');
 		}
 
-		return new \REST\voidResult();
+		return new \REST\VoidResult();
 	}
 
 	/**
@@ -695,7 +695,7 @@ class GridfsAPI extends API {
 
 		header('Content-type: text/plain; charset=UTF-8');
 		echo 'guhdruigbhnditughnnfuidbvbhdf'.json_encode($res).'JGBIGBUIGIUGUIGIZUFUZFUKZ';
-		return new \REST\voidResult();
+		return new \REST\VoidResult();
 	}
 
 	/**
@@ -713,7 +713,7 @@ class GridfsAPI extends API {
 		header('Content-Disposition: inline; filename="'.$strId.'"');
 		header('Content-Length: '.filesize(CACHE_DIR.$strId));
 		echo file_get_contents(CACHE_DIR.$strId);
-		return new \REST\voidResult();
+		return new \REST\VoidResult();
 	}
 
 	/**
